@@ -1,0 +1,16 @@
+<deployment xmlns="http://xml.apache.org/axis/wsdd/"
+            xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <handler name="LoggingHandler" type="java:com.example.axis.client.LoggingHandler"/>
+  <service name="HelloWorldService" provider="java:RPC">
+    <parameter name="className" value="com.example.axis.service.HelloWorldService"/>
+    <parameter name="allowedMethods" value="*"/>
+    <parameter name="scope" value="Request"/>
+    <requestFlow>
+        <handler type="LoggingHandler"/>
+    </requestFlow>
+    <responseFlow>
+        <handler type="LoggingHandler"/>
+    </responseFlow>
+  </service>
+</deployment>
